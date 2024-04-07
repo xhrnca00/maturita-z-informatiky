@@ -1,38 +1,35 @@
 #include <algorithm>
+#include <cstdint>
 #include <iomanip>
 #include <iostream>
 #include <string>
 
-std::string add(const std::string &a, const std::string &b) {
-    constexpr char ALEN = '9' - '0' + 1;
-    if (a.size() < b.size())
-        return add(b, a);
-    std::string ret(a.size() + 1, '0');
+using longnum_t = std::string;
 
-    auto ai = a.crbegin();
-    auto bi = b.crbegin();
+longnum_t add(const longnum_t &a, const longnum_t &b) {
+    constexpr char ALEN = '9' - '0' + 1;
+    std::string ret;
     char carry = 0;
-    auto ri = ret.rbegin();
-    while (bi != b.crend()) {
-        char digit = *ai++ - '0' + *bi++ - '0' + carry;
-        *ri++ = digit % ALEN + '0';
+    std::size_t max_i = std::max(a.size(), b.size());
+    for (std::size_t i = 0; i < max_i; ++i) {
+        char digit = carry;
+        if (i < a.size())
+            digit += a[a.size() - 1 - i] - '0';
+        if (i < b.size())
+            digit += b[b.size() - 1 - i] - '0';
         carry = digit / ALEN;
+        ret.push_back(digit % ALEN + '0');
     }
-    while (ai != a.crend()) {
-        char digit = *ai++ - '0' + carry;
-        *ri++ = digit % ALEN + '0';
-        carry = digit / ALEN;
-    }
-    *ri += carry;
-    auto ri2 = ret.begin();
-    while (ri2 != ret.end() && *ri2 == '0') {
-        ri2++;
-    }
-    return std::string(ri2, ret.end());
+    ret.push_back(carry + '0'); // carry is possibly non-0
+    // delete leading zeroes (up to the last one)
+    while (ret.size() > 1 && ret[ret.size() - 1] == '0')
+        ret.pop_back();
+    std::reverse(ret.begin(), ret.end());
+    return ret;
 }
 
 int main() {
-    std::string a, b;
+    longnum_t a, b;
     std::cout << "First number: ";
     std::cin >> a;
     std::cout << "Second number: ";
@@ -42,7 +39,7 @@ int main() {
     std::cout
         << std::setw(max) << a << '\n'
         << std::setw(max) << b << '\n'
-        << std::setw(max) << std::setfill('-') << "" << '\n'
-        << res << std::endl;
+        << std::setw(max) << std::setfill('-') << "" << std::setfill(' ') << '\n'
+        << std::setw(max) << res << std::endl;
     return 0;
 }

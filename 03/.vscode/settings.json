@@ -1,0 +1,8 @@
+{
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}\\build\\compile_commands.json",
+    "files.associations": {
+        "*.h": "cpp",
+        "fstream": "cpp",
+        "cmath": "cpp"
+    }
+}

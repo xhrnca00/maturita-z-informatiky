@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>787</width>
+    <height>602</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPlainTextEdit" name="textEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>787</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSoubor">
+    <property name="title">
+     <string>Soubor</string>
+    </property>
+    <addaction name="actionNov"/>
+    <addaction name="actionOtev_t"/>
+    <addaction name="actionUlo_it"/>
+    <addaction name="actionUlo_it_jako"/>
+    <addaction name="actionKonec"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menu_pravy">
+    <property name="title">
+     <string>Úpravy</string>
+    </property>
+    <addaction name="actionVyjmout"/>
+    <addaction name="actionKop_rovat"/>
+    <addaction name="actionVlo_it"/>
+   </widget>
+   <widget class="QMenu" name="menuN_pov_da">
+    <property name="title">
+     <string>Nápověda</string>
+    </property>
+    <addaction name="actionO_programu"/>
+   </widget>
+   <addaction name="menuSoubor"/>
+   <addaction name="menu_pravy"/>
+   <addaction name="menuN_pov_da"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNov">
+   <property name="text">
+    <string>Nový</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionOtev_t">
+   <property name="text">
+    <string>Otevřít...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionUlo_it_jako">
+   <property name="text">
+    <string>Uložit jako...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionKonec">
+   <property name="text">
+    <string>Konec</string>
+   </property>
+  </action>
+  <action name="actionVyjmout">
+   <property name="text">
+    <string>Vyjmout</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionKop_rovat">
+   <property name="text">
+    <string>Kopírovat</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionVlo_it">
+   <property name="text">
+    <string>Vložit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionO_programu">
+   <property name="text">
+    <string>O programu...</string>
+   </property>
+  </action>
+  <action name="actionUlo_it">
+   <property name="text">
+    <string>Uložit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

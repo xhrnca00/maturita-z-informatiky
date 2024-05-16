@@ -1,30 +1,30 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-void kopirujSoubor(string nazev, string slozka){
-    cout << "Zacinam kopirovat soubor "<<nazev<<endl;
+void kopirujSoubor(string nazev, string slozka) {
+    cout << "Zacinam kopirovat soubor " << nazev << endl;
 
     ifstream soubor1;
     ofstream soubor2;
     char bajt;
 
-    soubor1.open(nazev.c_str(),ios::binary|ios::in);
-    soubor2.open((slozka+nazev).c_str(),ios::binary|ios::out);
+    soubor1.open(nazev.c_str(), ios::binary | ios::in);
+    soubor2.open((slozka + nazev).c_str(), ios::binary | ios::out);
 
-    while(soubor1.read((char*)&bajt, sizeof(char))){
+    while (soubor1.read((char *)&bajt, sizeof(char))) {
         soubor2.write(&bajt, 1);
     }
 
     soubor2.close();
     soubor1.close();
 
-    cout << "Kopirovani ukonceno"<<endl;
+    cout << "Kopirovani ukonceno" << endl;
 }
 
-int main()
-{
+int main() {
     ifstream soubor;
     string slozka;
     string nazev;
@@ -34,13 +34,13 @@ int main()
     cin >> slozka;
 
     soubor.open("soubory.txt");
-    while(getline(soubor,nazev)){
-        cout << "Budeme kopirovat soubor "<<nazev<<endl;
+    while (getline(soubor, nazev)) {
+        cout << "Budeme kopirovat soubor " << nazev << endl;
         kopirujSoubor(nazev, slozka);
     }
 
     soubor.close();
-    cout << "Instalace dokoncena."<<endl;
+    cout << "Instalace dokoncena." << endl;
 
     return 0;
 }

@@ -17,10 +17,8 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic -Wconversion -Wnarrowing -Werror=return-type)
 endif()
 
-# set(CMAKE_BUILD_TYPE Release)
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-
 # include(CTest)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 
-add_executable(14 src/main.cpp)
+add_executable(14-1 src/first.cpp)
+add_executable(14-2 src/second.cpp)

@@ -68,12 +68,8 @@ Trie fqs(const char filename[]) {
     while (f >> w) {
         Trie *curr = &trie;
         auto c = w.begin();
-        while (c != w.end()) {
-            if (!curr->next.count(*c))
-                curr->next[*c] = Trie();
-            curr = &curr->next[*c];
-            ++c;
-        }
+        while (c != w.end())
+            curr = &curr->next[*c++];
         curr->v += 1;
     }
     f.close();

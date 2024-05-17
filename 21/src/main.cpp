@@ -37,5 +37,7 @@ int main() {
         else
             s = State::W;
     }
+    in.close();
+    out.close();
     return 0;
 }

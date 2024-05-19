@@ -57,5 +57,5 @@ dec_t find(dec_t l, dec_t r) {
             lv = mv;
         }
     }
-    return l;
+    return (l + r) / 2;
 }

@@ -56,6 +56,7 @@ void print(const int arr[], int len) {
 bool binary_search(const int arr[], int len, int x) {
     int l = 0, r = len;
     while (r - l) {
+        std::cout << '[' << r << ", " << l << ")\n";
         int mid = (l + r) / 2;
         if (arr[mid] == x)
             return true;
